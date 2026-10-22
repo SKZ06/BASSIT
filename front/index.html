@@ -1,15 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/front/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ee">
+  <title>Little Things — Collection</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    
+  <main class="layout">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Little Things home"><span class="brand-mark">L</span> little things</a>
+      <div class="connection" aria-live="polite"><span id="server-dot" class="status-dot"></span><span id="server-label">Server checking</span><span class="status-divider">·</span><span id="database-dot" class="status-dot"></span><span id="database-label">Database checking</span></div>
+    </header>
 
+    <section class="intro" id="top">
+      <p class="eyebrow">A place for what matters</p>
+      <h1>Keep the little<br><em>things close.</em></h1>
+      <p class="intro-copy">Save a thought, a plan, or anything you want to remember. It’ll be here when you come back.</p>
+    </section>
 
-    <script src="script.js"></script>
+    <section class="composer" aria-labelledby="form-title">
+      <div class="section-heading"><div><p class="eyebrow">Add to your collection</p><h2 id="form-title">What’s on your mind?</h2></div><span class="sparkle" aria-hidden="true">✳</span></div>
+      <form id="item-form">
+        <label for="item-name">Name</label>
+        <input id="item-name" name="name" maxlength="100" placeholder="Give it a name…" required>
+        <label for="item-description">A few more details <span class="optional">(optional)</span></label>
+        <textarea id="item-description" name="description" maxlength="500" rows="3" placeholder="Add a note…"></textarea>
+        <div class="form-footer"><p id="form-message" class="form-message" role="status" aria-live="polite"></p><button type="submit">Save to collection <span aria-hidden="true">↗</span></button></div>
+      </form>
+    </section>
+
+    <section class="collection" aria-labelledby="collection-title">
+      <div class="collection-heading"><div><p class="eyebrow">Your saved things</p><h2 id="collection-title">The collection <span id="item-count" class="count">0</span></h2></div><button id="refresh-button" class="refresh-button" type="button" aria-label="Refresh collection">↻</button></div>
+      <div id="items" class="items" aria-live="polite"><p class="empty-state">Loading your collection…</p></div>
+    </section>
+    <footer>Made for the things you don’t want to forget.</footer>
+  </main>
 </body>
 </html>
